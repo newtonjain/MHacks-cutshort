@@ -1,0 +1,10 @@
+{
+    "version": "2.1.0",
+    "name": "com.blackberry.push",
+    "description": "BlackBerry 10 Push APIs",
+    "license": "Apache 2.0",
+    "platforms": [
+        "blackberry10"
+    ],
+    "engines": []
+}

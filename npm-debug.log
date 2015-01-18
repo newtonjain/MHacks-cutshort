@@ -1,0 +1,92 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'update',
+1 verbose cli   '-g',
+1 verbose cli   'ionic',
+1 verbose cli   'to',
+1 verbose cli   'update' ]
+2 info using npm@2.0.2
+3 info using node@v0.10.29
+4 verbose mapToRegistry name ionic
+5 verbose mapToRegistry uri https://registry.npmjs.org/ionic
+6 verbose request on initialization, where is /ionic
+7 verbose request after pass 1, where is /ionic
+8 verbose request url raw /ionic
+9 verbose request resolving registry [ 'https://registry.npmjs.org/', './ionic' ]
+10 verbose request after pass 2, where is https://registry.npmjs.org/ionic
+11 verbose request no auth needed
+12 info attempt registry request try #1 at 21:02:27
+13 verbose request id 3fe7c920bc9e1418
+14 verbose etag "8HFNBBSET63MBEO8XXWPA114H"
+15 http request GET https://registry.npmjs.org/ionic
+16 http 200 https://registry.npmjs.org/ionic
+17 silly registry.get cb [ 200,
+17 silly registry.get   { date: 'Mon, 22 Dec 2014 02:02:27 GMT',
+17 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+17 silly registry.get     etag: '"BUEMDKIKM84ZV9SNX0JNY6JG2"',
+17 silly registry.get     'content-type': 'application/json',
+17 silly registry.get     'cache-control': 'max-age=60',
+17 silly registry.get     'content-length': '161585',
+17 silly registry.get     'accept-ranges': 'bytes',
+17 silly registry.get     via: '1.1 varnish',
+17 silly registry.get     age: '0',
+17 silly registry.get     'x-served-by': 'cache-atl6232-ATL',
+17 silly registry.get     'x-cache': 'HIT',
+17 silly registry.get     'x-cache-hits': '1',
+17 silly registry.get     'x-timer': 'S1419213747.759409,VS0,VE110',
+17 silly registry.get     vary: 'Accept',
+17 silly registry.get     'keep-alive': 'timeout=10, max=50',
+17 silly registry.get     connection: 'Keep-Alive' } ]
+18 info outdated updating [ [ '/usr/local/lib', 'ionic', '1.2.8', '1.2.13', '1.2.13', 'latest' ] ]
+19 verbose install where, what [ '/usr/local/lib', [ 'ionic@1.2.13' ] ]
+20 verbose cache add [ 'ionic@1.2.13', null ]
+21 verbose cache add spec="ionic@1.2.13" args=["ionic@1.2.13",null]
+22 verbose parsed spec { raw: 'ionic@1.2.13',
+22 verbose parsed spec   scope: null,
+22 verbose parsed spec   name: 'ionic',
+22 verbose parsed spec   rawSpec: '1.2.13',
+22 verbose parsed spec   spec: '1.2.13',
+22 verbose parsed spec   type: 'version' }
+23 verbose parsed spec { raw: 'ionic@1.2.13',
+23 verbose parsed spec   scope: null,
+23 verbose parsed spec   name: 'ionic',
+23 verbose parsed spec   rawSpec: '1.2.13',
+23 verbose parsed spec   spec: '1.2.13',
+23 verbose parsed spec   type: 'version' }
+24 verbose addNamed [ 'ionic', '1.2.13' ]
+25 verbose addNamed [ '1.2.13', '1.2.13' ]
+26 silly lockFile 5e1bd26f-ionic-1-2-13 ionic@1.2.13
+27 verbose lock ionic@1.2.13 /Users/newton/.npm/5e1bd26f-ionic-1-2-13.lock
+28 verbose mapToRegistry name ionic
+29 verbose mapToRegistry uri https://registry.npmjs.org/ionic
+30 verbose registry.get https://registry.npmjs.org/ionic not expired, no request
+31 silly lockFile 61b739f4-npmjs-org-ionic-ionic-1-2-13-tgz https://registry.npmjs.org/ionic/-/ionic-1.2.13.tgz
+32 verbose lock https://registry.npmjs.org/ionic/-/ionic-1.2.13.tgz /Users/newton/.npm/61b739f4-npmjs-org-ionic-ionic-1-2-13-tgz.lock
+33 verbose addRemoteTarball [ 'https://registry.npmjs.org/ionic/-/ionic-1.2.13.tgz',
+33 verbose addRemoteTarball   '24e6c4aa646d73f4d62b0b75a25d5fdb117929e0' ]
+34 info retry fetch attempt 1 at 21:02:28
+35 info attempt registry request try #1 at 21:02:28
+36 http fetch GET https://registry.npmjs.org/ionic/-/ionic-1.2.13.tgz
+37 http fetch 200 https://registry.npmjs.org/ionic/-/ionic-1.2.13.tgz
+38 silly fetchAndShaCheck shasum 24e6c4aa646d73f4d62b0b75a25d5fdb117929e0
+39 silly lockFile 61b739f4-npmjs-org-ionic-ionic-1-2-13-tgz https://registry.npmjs.org/ionic/-/ionic-1.2.13.tgz
+40 silly lockFile 61b739f4-npmjs-org-ionic-ionic-1-2-13-tgz https://registry.npmjs.org/ionic/-/ionic-1.2.13.tgz
+41 silly lockFile 5e1bd26f-ionic-1-2-13 ionic@1.2.13
+42 silly lockFile 5e1bd26f-ionic-1-2-13 ionic@1.2.13
+43 verbose stack Error: EACCES, mkdir '/Users/newton/.npm/ionic/1.2.13'
+44 verbose cwd /Users/newton/Desktop/source/LatestFrontend
+45 error Darwin 13.3.0
+46 error argv "node" "/usr/local/bin/npm" "update" "-g" "ionic" "to" "update"
+47 error node v0.10.29
+48 error npm  v2.0.2
+49 error path /Users/newton/.npm/ionic/1.2.13
+50 error code EACCES
+51 error errno 3
+52 error Error: EACCES, mkdir '/Users/newton/.npm/ionic/1.2.13'
+52 error  { [Error: EACCES, mkdir '/Users/newton/.npm/ionic/1.2.13']
+52 error   errno: 3,
+52 error   code: 'EACCES',
+52 error   path: '/Users/newton/.npm/ionic/1.2.13' }
+53 error Please try running this command again as root/Administrator.
+54 verbose exit [ 3, true ]

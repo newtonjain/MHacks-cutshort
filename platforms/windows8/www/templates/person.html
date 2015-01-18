@@ -1,0 +1,112 @@
+<ion-view title="Profile" >
+ <style >
+.centered{
+ 	margin-left: auto;
+ 	margin-right: auto;
+ 	display: table;
+ } 
+ .centeringContainer{
+ 	text-align: justify;
+ } 
+
+.ion-content{
+	border-bottom:0px;
+}
+	
+
+ </style>
+<ion-content>
+		<ion-list>
+			<div class="item item-thumbnail item-text-wrap" style="border:0px">
+
+				<img src="{{match.pictureUrl}}" class="headshot" />
+
+				<h1 style="margin-top:5px" align="center">{{match.firstName}} {{match.lastName}}</h1>
+
+
+				<p align="center">
+					{{match.headline}}
+				</p>
+				<p align="center">
+					{{match.industry}}
+				</p>
+				<br> <p align="center"><b>Summary</b></p>
+
+				<div class="centeringContainer">
+					<div class="centered">
+				<p>
+					{{match.summary}}
+			</p>
+					</div>
+				</div>
+
+				<br>
+
+				<p align="center"><b>Interests</b></p>
+				
+				<p align="center">
+					{{(match.interests).join(",")}}
+				</p>
+				<div ng-if="match.commonInterest">
+				<p align ="center"><b>Common Interests</b>
+				<p align ="center">	{{(match.commonInterest).join(",")}}</p></div>
+				<br><div align="center">
+				<button class="button button-small icon ion-person-add"
+				ng-click="konnect_f(match) ; animate=!animate" ng-hide="(match.konnect || match.hasReceivedConnectionRequest || match.afterAccept) && !clicked">
+					Connect
+				</button>
+
+				<p ng-if="match.konnect && !match.hasReceivedConnectionRequest && !match.afterAccept" class="animated" ng-class="{bounceIn: animate, bounceOut: !animate}">
+					Connection request sent
+				</p>
+
+				<p ng-if="match.hasReceivedConnectionRequest">
+					Accept connection request?
+				</p>
+				<button class="btn btn-success btn-sm icon ion-checkmark"
+				ng-click="konnect_accept(match)" ng-if="match.hasReceivedConnectionRequest">
+					Accept
+				</button>
+				<button class="btn btn-danger btn-sm icon ion-close"
+				ng-click="konnect_reject(match)" ng-if="match.hasReceivedConnectionRequest"
+				style="align-right:40px">
+					Decline
+				</button>
+
+				<button class="button button-small icon ion-paper-airplane"
+				ui-sref="app.dialogue({userId:match.id})" ng-if="match.afterAccept && !clicked">
+					Messaging
+				</button>
+<!-- if we ever want to implement feature of removing new rpofiles from home screen
+				<button class="btn btn-danger btn-sm icon ion-close"
+				ng-click="konnect_reject(match)" ng-if="!match.afterAccept"
+				style="align-right:40px">
+					Remove
+				</button>
+			-->
+				<button class="button button-small icon ion-close"
+				 ng-click="konnect_delete(match)" ng-if="match.afterAccept && !clicked">
+					Delete
+				</button>
+
+				<p ng-if="match.hasNewMessages">
+					You have new message.
+				</p>
+				</div>
+			</div>
+		</ion-list>
+	</ion-content>
+
+</ion-view>
+
+<script type="text/ng-template" id="Delete">
+		<div class="dialog-contents">
+    <center><h3>Delete Connection?</h3></center>
+    <p>Are you sure you want to delete this connection?</p>
+    <center><div>
+    <button ng-click="confirm(match); connectionremove(match)">Confirm</button>
+    <button ng-click="closeThisDialog()">Cancel</button>
+    </div></center>
+    
+</div>
+</script>

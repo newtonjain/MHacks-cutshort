@@ -1,0 +1,259 @@
+<ion-view title="Event Profile">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    <ion-nav-buttons side="left">
+    
+  </ion-nav-buttons>
+
+  <style>
+  .scroll-content{
+   
+    background-size:100% 100%;
+    background-position:bottom left;
+
+
+  }
+  .image_carousel img {
+  margin-right: 14px;
+  display: block;
+
+  box-shadow: 3px 3px 1px #ccc;
+  -webkit-box-shadow: 3px 3px 1px #ccc;
+  -moz-box-shadow: 3px 3px 1px #ccc;
+}
+
+
+
+
+.card{
+  border:solid 2px #ccc; 
+}
+
+
+
+.btn {
+  position: relative;
+  display: block;
+  width:100px;
+  height:30px;
+  margin-top:15px;
+  font-family: "Open Sans", Sans;
+  font-weight:600;
+  color:#fff;
+  text-align:center;
+  padding: 5px 0px;
+  background: #da292b;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+       -o-border-radius: 5px;
+      -ms-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0px 3px 0px #9e0b0f;
+     -moz-box-shadow: 0px 3px 0px #9e0b0f;
+       -o-box-shadow: 0px 3px 0px #9e0b0f;
+      -ms-box-shadow: 0px 3px 0px #9e0b0f;
+          box-shadow: 0px 3px 0px #9e0b0f;
+  -webkit-transition: all 0.2s ease;
+     -moz-transition: all 0.2s ease;
+       -o-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+}
+
+.btn:hover {
+  background: #e94d4f;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+     -moz-transition: all 0.2s ease;
+       -o-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+}
+
+.btn:active {
+  top: 4px;
+  background: #d44547;
+  cursor: pointer;
+    -webkit-box-shadow: 0px 1px 0px #9e0b0f;
+     -moz-box-shadow: 0px 1px 0px #9e0b0f;
+       -o-box-shadow: 0px 1px 0px #9e0b0f;
+      -ms-box-shadow: 0px 1px 0px #9e0b0f;
+          box-shadow: 0px 1px 0px #9e0b0f;
+}
+
+
+
+
+.form-field {
+    width:100%;
+    background: transparent;
+     margin-top:10px;
+     border: 4px solid rgb(192,192,192);
+     -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+          -o-border-radius: 5px;
+         -ms-border-radius: 5px;
+             border-radius: 5px;
+     color: rgb(0,0,0);
+    
+
+
+     font-family: "Open Sans", Sans;
+     font-style: oblique;
+     font-weight: 500px;
+     padding: 8px 15px;
+    -webkit-transition: all 0.2s ease;
+     -moz-transition: all 0.2s ease;
+       -o-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+}
+
+.form-field:hover {
+     border: 2px solid rgb(0,0,0);
+     -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+          -o-border-radius: 5px;
+         -ms-border-radius: 5px;
+             border-radius: 5px;
+     color: rgb(0,0,0);
+     font-family: "Open Sans", Sans;
+     font-style: normal;
+     font-weight: ;
+     padding: 8px 15px;
+    -webkit-transition: all 0.2s ease;
+     -moz-transition: all 0.2s ease;
+       -o-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: rgb(0,0,0);
+
+}
+input:-moz-placeholder, textarea:-moz-placeholder {
+  color: rgb(0,0,0);
+}
+
+
+     
+.form-field:focus {
+   color: rgb(0,0,0);
+   border: 2px solid rgb(0,0,0);
+   outline:none;
+   }
+
+.subtitle{
+  background:transparent;
+  border:solid 2px #888888;
+}
+.card{
+  background: transparent;
+}
+
+  .title{
+    font-family: Helvetica;
+  }
+
+  .buttontext{
+    color:#FFFFFF ;
+  }
+
+  h3 {
+    font-family: Helvetica;
+    color:black;
+
+  }
+
+  h1 {
+    font-family: Helvetica;
+    color:black;
+  }
+
+  h6 {
+    font-family: Helvetica;
+    color:black;
+    padding-left:10px;
+  padding-right:10px;
+
+  }
+
+   h5 {
+    font-family: Helvetica;
+    color:black;
+    padding-left:10px;
+  padding-right:10px;
+  }
+
+   h4 {
+    font-family: Helvetica;
+    color:black;
+    padding-left:10px;
+  padding-right:10px;
+  }
+
+  p{
+    font-family: Helvetica;
+    color:black;
+    padding-left:10px;
+  padding-right:10px;
+  }
+
+  .font{
+     font-family: Helvetica;
+  }
+
+  .indent {
+    text-indent: 50px;
+  }
+
+  a{
+    text-decoration: underline;
+    color:black;
+  }
+
+
+
+.sample-show-hide {
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+}
+
+.sample-show-hide.ng-hide {
+  opacity:0;
+}
+  </style>
+
+  	<ion-content>
+        <div class="item item-thumbnail-left item-text-wrap subtitle">
+       
+        <img class="image_carousel" ng-src="{{eventinfo.LogoURL}}" width="30%">
+        <h2><b>{{eventinfo.EventTitle}}</b></h2>
+        <h6>--host by: {{eventinfo.EventOgnzer}}</h6>
+        <button ng-show="verify"  class="button button-small button-royal ion-person-stalker animated" type="button" ng-click="open()" ng-class="{fadeIn: !animate}" ng-if = "attendees">Attendees</button>
+        </div>
+       <form class="form-field" method="post" ng-submit="emailtoken(email)" ng-hide="verify">
+          <input style="border:2px solid #000000"type="email"  class="form-field" id="email" placeholder="Please enter your PWC email address" ng-click="show=true" required>
+          <div id="comment" ng-show="show" class="ng-show">
+          <p id="comment">{{emailcomment}}</p>
+        </div>
+
+          <input type="submit" class="btn" id ="submit" value="Sign Up" >
+           <p>You can view the content and make connections with event addentees after enter your valid PWC email.</p>
+       </form>
+       <div class="card animated" ng-show="verify" ng-class="{fadeIn: !animate}">
+        <br><h5>Event Time: <b> {{eventinfo.EventTime}} </b></h5> 
+        <h5> Event Address:<b><a href ng-click="maplink(eventinfo.EventAddress)"> {{eventinfo.EventAddress}} </a></b></h5>
+        <h5>Contact Person:<b> {{eventinfo.ContactPerson}}</b> </h5>
+        <h5>Contact Info:<br></h5>
+    
+        <h5 class="indent">Tel:<a href="tel:{{eventinfo.ContactTel}}"><b>{{eventinfo.ContactTel}}<br></a></b></h5>
+                
+
+      
+</div>
+
+
+
+    </ion-content>
+</ion-view>

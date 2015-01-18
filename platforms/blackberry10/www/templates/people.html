@@ -1,0 +1,353 @@
+<ion-header-bar class="bar ">
+      <div><button menu-toggle="left" class="button button-icon icon ion-navicon"></button></div>
+      
+      
+	   <div class="button-bar">
+        
+        <div class="button button-clear">Page: {{pageNumber}}</div>
+     
+       
+        </div>
+
+       
+            <div>
+         
+<div><button menu-toggle="right" class="button button-icon icon ion-bookmark"></button></div>            	</div>
+
+    </ion-header-bar>
+    
+      
+<!-- 	<div class="bar bar-subheader item-input-inset">
+		<label class="item-input-wrapper"> <i class="icon ion-ios7-search placeholder-icon"></i>
+			<input type="search" id="searchText" placeholder="Search" ng-model="searchText">
+		</label>
+
+	</div> -->
+
+<style type="text/css">
+.animate-enter, .animate-leave {
+transition: 500ms ease-in all;
+position: relative;
+display: block;
+} 
+.animate-enter.animate-enter-active, .animate-leave {
+left: 0;
+}
+.animate-leave.animate-leave-active, .animate-enter {
+left: 500px;
+}
+
+</style>
+	<ion-content>
+		<div style="padding-top:100px" ng-if="keys2==0">
+	 	<div class="loader">
+    		<div class="spinner">
+			  <div class="double-bounce1"></div>
+			  <div class="double-bounce2"></div>
+			</div>
+    	</div>
+    	</div>
+
+	<div  ng-if="showAttendee && eventattend && attendees">
+	<center><h5 style="display:inline; margin-top:-5px">Potential &nbsp</h5><fieldset class='toggles' style="display:inline; ">
+					<input id='Attendee' type='checkbox' ng-click="Attendeelist(Attendee)">
+					<label for='Attendee'></label>
+					
+
+
+				</fieldset><h5 style="display:inline; text-align: center;">&nbsp Attendees</h5></center>
+	</div>
+     
+		<ion-list>
+
+			<div class="item item-text-wrap new-message-card" ng-if="count != 0" >
+				
+			<button class="button button-small ion-paper-airplane" ui-sref="app.connections" >
+					New {{ count > 1 ? "messages" : "message" }}
+				from {{ count }} {{ count > 1 ? "people" : "person" }}
+				</button>
+			</div>
+
+
+			
+			<div ng-show="!inRoom">
+				<!--  -->
+				<div class="item item-thumbnail-left item-text-wrap fadeDown" 
+			bindonce ng-repeat="match in prequestList"
+
+			style="background-color: {{'#f8fff4'}}">
+
+				<img src="{{match.pictureUrl}}" onError="this.onerror=null;this.src='img/kguy.png';" class="headshot menu-item" style="margin-left: 0px" />
+
+				<h2>{{match.firstName}}</h2>
+				<h2>{{match.lastName}}</h2>
+				<p>
+					{{match.headline}}
+				</p>
+				<p>
+					{{match.industry}}
+				</p>
+				
+				<div ng-if="match.commonInterest">
+				
+				<h6 class="textinterest"><b>{{match.numInterests}}</b> Common Interests: &nbsp</h6>
+				
+				
+				<p><span class="textcolor"><b>{{(match.commonInterest).join(",")}}</b></span></p>  
+				</div>
+
+				<button class="button button-small icon ion-android-search"
+
+				ng-click="viewPerson(match)">
+					View Profile
+
+				</button>
+
+
+				<button class="button button-small ion-person-add"
+				ng-click="konnect_f(match) ; animate=!animate " ng-hide="match.konnect || match.hasReceivedConnectionRequest || match.afterAccept">
+					Connect
+				</button>
+				
+				<p ng-if="match.konnect && !match.hasReceivedConnectionRequest && !match.afterAccept" class="animated" ng-class="{bounceIn: !animate}">
+					Connection request sent
+				</p>
+
+				<p ng-if="match.hasReceivedConnectionRequest">
+					Accept connection request?
+				</p>
+				<button class="btn btn-success btn-sm icon ion-checkmark"
+				ng-click="konnect_accept(match)" ng-if="match.hasReceivedConnectionRequest">
+					Accept
+				</button>
+				<button class="btn btn-danger btn-sm icon ion-close"
+				ng-click="konnect_reject(match)" ng-if="match.hasReceivedConnectionRequest"
+				style="align-right:40px">
+					Decline
+				</button>
+
+				<button class="button button-small ion-paper-airplane" ui-sref="app.dialogue({userId:match.id})" ng-if="match.afterAccept && !clicked && !match.hasNewMessages">
+					Messaging
+
+				</button>
+				<button class="button button-balanced button-small ion-paper-airplane" ui-sref="app.dialogue({userId:match.id})" ng-if="match.afterAccept && !clicked && match.hasNewMessages">
+					Messaging
+
+				</button>
+				
+
+				<p ng-if="match.hasNewMessages">
+					<b>You have new messages</b>
+				</p>
+
+
+			</div>
+
+				<!--  -->
+				<div>
+			<div class="item item-thumbnail-left item-text-wrap" 
+			bindonce ng-repeat="key in keys2" 
+
+			style="background-color: {{ matchesList[key].hasNewMessages ? '#ddddff' : (matchesList[key].hasReceivedConnectionRequest ? '#f8fff4' : '#ffffff') }};" ng-hide="matchesList[key].hasReceivedConnectionRequest || !key || key==0" >
+
+
+
+				<img src="{{matchesList[key].pictureUrl}}" onError="this.onerror=null;this.src='img/kguy.png';" class="headshot menu-item" style="margin-left: 0px" />
+
+				<h2 ng-animate="'animate'">{{matchesList[key].firstName}}</h2>
+				<h2 ng-animate="'animate'">{{matchesList[key].lastName}}</h2>
+				<p>
+					{{matchesList[key].headline}}
+				</p>
+				<p>
+					{{matchesList[key].industry}}
+				</p>
+		<!-- 		<div ng-if="([match.summary] | filter:searchText : exceptEmptyComparatorSummary).length > 0 && getsearchSummary && searchText">
+				<h6>Summary:</h6>
+				<p ng-bind-html="personalSummary | highlight:searchText"  style="text-overflow: ellipsis; overflow:hidden; white-space:nowrap; width: 100%;">{{personalSummary}}</p>  
+				</div>
+				<div ng-if="([match.interests] | filter:searchText : exceptEmptyComparatorInterest).length > 0 && getsearchInterest && searchText">
+				<h6>Interests:</h6>
+				<p ng-bind-html="searchinterest | highlight:searchText"  style="text-overflow: ellipsis; overflow:hidden; white-space:nowrap; width: 100%;">{{searchinterest}}</p>  
+				</div> -->
+				
+				<div ng-if="matchesList[key].commonInterest">
+				
+				<h6 class="textinterest"><b>{{matchesList[key].numInterests}}</b> Common Interests: &nbsp</h6>
+				
+				
+				<p><span class="textcolor"><b>{{(matchesList[key].commonInterest).join(",")}}</b></span></p>  
+				</div>
+
+				<button class="button button-small icon ion-android-search"
+
+				ng-click="viewPerson(matchesList[key])">
+					View Profile
+
+				</button>
+
+
+				<button class="button button-small ion-person-add"
+				ng-click="konnect_f(matchesList[key]) ; animate=!animate " ng-hide="matchesList[key].konnect || matchesList[key].hasReceivedConnectionRequest || matchesList[key].afterAccept">
+					Connect
+				</button>
+				
+				<p ng-if="matchesList[key].konnect && !matchesList[key].hasReceivedConnectionRequest && !matchesList[key].afterAccept" class="animated" ng-class="{bounceIn: !animate}">
+					Connection request sent
+				</p>
+
+				<p ng-if="matchesList[key].hasReceivedConnectionRequest">
+					Accept connection request?
+				</p>
+				<button class="btn btn-success btn-sm icon ion-checkmark"
+				ng-click="konnect_accept(matchesList[key])" ng-if="matchesList[key].hasReceivedConnectionRequest">
+					Accept
+				</button>
+				<button class="btn btn-danger btn-sm icon ion-close"
+				ng-click="konnect_reject(matchesList[key])" ng-if="matchesList[key].hasReceivedConnectionRequest"
+				style="align-right:40px">
+					Decline
+				</button>
+
+				<button class="button button-small ion-paper-airplane" ui-sref="app.dialogue({userId:matchesList[key].id})" ng-if="matchesList[key].afterAccept && !clicked && !matchesList[key].hasNewMessages">
+					Messaging
+
+				</button>
+				<button class="button button-balanced button-small ion-paper-airplane" ui-sref="app.dialogue({userId:matchesList[key].id})" ng-if="matchesList[key].afterAccept && !clicked && matchesList[key].hasNewMessages">
+					Messaging
+
+				</button>
+				
+
+				<p ng-if="matchesList[key].hasNewMessages">
+					<b>You have new messages</b>
+				</p>
+
+
+			</div>
+			</div>
+			</div>
+
+			<!-- <button class="button button-balanced button-small" ng-click="previous()" id="prev">Prev</button>
+			<button class="button button-balanced button-small" ng-click="next()" id="next">Next</button> -->
+			
+			
+			<!-- 	<div ng-show=" pmNum == 0">
+			Nobody currently available
+				</div> -->
+
+				<div class="button-bar" ng-if="keys.length>10">
+        
+        <button ng-click="next()" ng-if="!lastPage" class="button">Next &#62;</button>
+       <button ng-click="previous()" ng-if="pageNumber!=1" class="button">&#60; Previous  </button>
+       
+        </div>
+
+				<!-- <button ng-click="keysLength()"> keys length : {{counting}}</button>
+				<button ng-click="fenceChange2('null')"> keys length : {{counting2}}</button>
+				<button ng-click="fenceChange1('pwc')"> Fence Change</button> -->
+
+		<!-- <ion-infinite-scroll on-infinite="addingMoreItem()" icon=""></ion-infinite-scroll> -->
+
+
+		</ion-list>
+		
+
+		<!-- <ion-list ng-if="attendeeCheck">
+			<div class="item item-text-wrap new-message-card" ng-if="getPeopleWithNewMessageCount()">
+				
+			<button class="button button-small ion-paper-airplane" ui-sref="app.connections" >
+					New {{ getPeopleWithNewMessageCount() > 1 ? "messages" : "message" }}
+				from {{ getPeopleWithNewMessageCount() }} {{ getPeopleWithNewMessageCount() > 1 ? "people" : "person" }}
+				</button>
+			</div>
+			
+			<div class="item item-thumbnail-left item-text-wrap" 
+			bindonce ng-repeat="match in getSortedPeople(people) | unique:'id' | filter:searchText | orderBy:orderPeopleByInterest : true | orderBy:peopleOrderPredicates | limitTo:numberOfItemsToDisplay"
+
+			style="background-color: {{ match.hasNewMessages ? '#ddddff' : (match.hasReceivedConnectionRequest ? '#f8fff4' : '#ffffff') }};">
+
+				<img src="{{match.pictureUrl}}" onError="this.onerror=null;this.src='img/kguy.png';" class="headshot menu-item" style="margin-left: 0px" />
+
+				<h2 ng-bind-html="match.firstName  | highlight:searchText">{{match.firstName}}</h2>
+				<h2 ng-bind-html="match.lastName | highlight:searchText">{{match.lastName}}</h2>
+				<p ng-bind-html="match.headline | highlight:searchText">
+					{{match.headline}}
+				</p>
+				<p ng-bind-html="match.industry | highlight:searchText">
+					{{match.industry}}
+				</p>
+				<div ng-if="([match.summary] | filter:searchText : exceptEmptyComparatorSummary).length > 0 && getsearchSummary && searchText">
+				<h6>Summary:</h6>
+				<p ng-bind-html="personalSummary | highlight:searchText"  style="text-overflow: ellipsis; overflow:hidden; white-space:nowrap; width: 100%;">{{personalSummary}}</p>  
+				</div>
+				<div ng-if="([match.interests] | filter:searchText : exceptEmptyComparatorInterest).length > 0 && getsearchInterest && searchText">
+				<h6>Interests:</h6>
+				<p ng-bind-html="searchinterest | highlight:searchText"  style="text-overflow: ellipsis; overflow:hidden; white-space:nowrap; width: 100%;">{{searchinterest}}</p>  
+				</div>
+				
+				<div ng-if="match.commonInterest">
+				
+				<h6 class="textinterest"><b>{{match.numInterests}}</b> Common Interests: &nbsp</h6>
+				
+				
+				<p><span class="textcolor"><b>{{(match.commonInterest).join(",")}}</b></span></p>  
+				</div>
+
+				<button class="button button-small icon ion-android-search"
+
+				ng-click="viewPerson(match); searchText={}">
+					View Profile
+
+				</button>
+
+
+				<button class="button button-small ion-person-add"
+				ng-click="konnect_f(match) ; animate=!animate " ng-hide="match.konnect || match.hasReceivedConnectionRequest || match.afterAccept">
+					Connect
+				</button>
+				
+				<p ng-if="match.konnect && !match.hasReceivedConnectionRequest && !match.afterAccept" class="animated" ng-class="{bounceIn: !animate}">
+					Connection request sent
+				</p>
+
+				<p ng-if="match.hasReceivedConnectionRequest">
+					Accept connection request?
+				</p>
+				<button class="btn btn-success btn-sm icon ion-checkmark"
+				ng-click="konnect_accept(match)" ng-if="match.hasReceivedConnectionRequest">
+					Accept
+				</button>
+				<button class="btn btn-danger btn-sm icon ion-close"
+				ng-click="konnect_reject(match)" ng-if="match.hasReceivedConnectionRequest"
+				style="align-right:40px">
+					Decline
+				</button>
+
+				<button class="button button-small ion-paper-airplane" ui-sref="app.dialogue({userId:match.id})" ng-if="match.afterAccept && !clicked">
+					Messaging
+
+				</button>
+				
+
+				<p ng-if="match.hasNewMessages">
+					You have new messages
+				</p>
+			</div>
+			
+
+			<p ng-hide="people.length">
+			<center>Nobody currently available</center>
+		</p>
+
+		<ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="addMoreItem()" icon=""></ion-infinite-scroll>
+			
+			</ion-list> -->
+	
+		
+
+		
+<!--<p id="geolocation">Finding geolocation...  </p>-->
+	</ion-content>
+
+<!-- </ion-view> -->

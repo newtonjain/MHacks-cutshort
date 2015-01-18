@@ -1,0 +1,11 @@
+{
+    "version": "2.2.1",
+    "name": "com.blackberry.invoked",
+    "cordova_name": "BlackBerry 10 Invoked",
+    "description": "BlackBerry 10 Invoked APIs",
+    "license": "Apache 2.0",
+    "platforms": [
+        "blackberry10"
+    ],
+    "engines": []
+}

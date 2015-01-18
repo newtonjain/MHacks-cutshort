@@ -1,0 +1,99 @@
+<ion-view title="Event Search">
+<ion-nav-buttons side="left">
+<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+</ion-nav-buttons>
+<ion-content>
+
+  
+
+  <style>
+
+  .scroll-content {
+
+     background-position: top left;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  .image_carousel img {
+  padding-right: 14px;
+  display: block;
+  float: left;
+  box-shadow: 3px 3px 1px #ccc;
+  -webkit-box-shadow: 3px 3px 1px #ccc;
+  -moz-box-shadow: 3px 3px 1px #ccc;
+}
+  .eventitem {
+     border-bottom:solid 2px #888888 ; 
+    position: relative;
+
+    background: transparent;
+    
+  }
+  .buttonlocation{
+    position:relative;
+
+   left:10px;
+   width:100px;
+  }
+.buttonsize{
+    height: 10px;
+    background: transparent;
+}
+.barsize{
+  height:34px;
+}
+.eventTitle{
+  color:#003300;
+}
+
+br {
+   display: block;
+   margin: 5px 0;
+}
+
+
+  </style>
+ <form >
+  <div class="item item-input-inset">
+   
+    <label class="item-input-wrapper">
+      <input type="text" class="input-group" placeholder="Enter Event ID" id="eventID" ng-model="eventID">
+    </label>
+    <button class="button button-small icon ion-ios7-search placeholder-icon" ng-click="searchEvent(eventID)">
+      Search
+    </button>
+
+  </div>
+  </form>
+  
+
+
+ <!--  <div class="bar bar-header item item-input-inset">
+    <label class="item-input-wrapper"> <i class="icon ion-ios7-search placeholder-icon"></i>
+      <input type="text" placeholder="Enter Event ID" id="eventID" ng-model="eventID" ></input>
+    </label>
+     <button class="button button-small" ng-click="searchEvent(eventID)">Search</button>
+    
+  </div> -->
+
+  <ion-list>
+
+  <div ng-repeat="events in EventPage | unique:'ID' ">
+    <a href ng-click="viewEvent(events); attendConfirm(eventID)">
+    <div class="item item-thumbnail-left item-text-wrap eventitem">
+    <img ng-src="{{events.LogoURL}}" style="margin-left: 0px" width="130px" height="80px">
+    <h2 style="margin-top:5px" class="eventTitle"><b>{{events.EventTitle}}</b></h2><br>
+    <p>{{events.EventTime}}</p>
+    <p>{{events.EventPlace}}</p>
+
+   
+  </div>
+  </a>
+  </div> 
+  </ion-list>
+
+
+</ion-content>
+</ion-view>
+
+  

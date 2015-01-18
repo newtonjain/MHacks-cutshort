@@ -1,0 +1,59 @@
+<style>
+    .listbutton{
+ 
+      max-width:60px;
+      height:24px;
+      font-size: 7px;
+      text-align: center;
+
+
+    }
+  
+    .ppllist{
+      background: transparent;
+    }
+    </style>
+ 
+    <ion-content  scroll="true" overflow-scroll="ture">
+    
+    <button class="button button-small button-royal icon ion-close-circled"
+       ng-dialog-scope="this" ng-click="close()">
+          Close
+        </button>
+      
+   <ion-list>
+  <div ng-repeat="attendee in attendees">
+  <div class="item item-avatar item-text-wrap ppllist">
+
+    
+  <img src="{{attendee.pictureUrl}}" style="margin-left: 0px" />
+
+        <h4 style="margin-top:5px">{{attendee.firstName}} {{attendee.lastName}}</h4>
+        <h6>
+          {{attendee.headline}}
+        </h6>
+        <h6>
+          {{attendee.industry}}
+        </h6>
+  
+        
+        <button class="button-stable icon-small ion-android-search listbutton"
+        ng-click="viewPerson(attendee); close()" >
+          View
+        </button>
+
+
+       <button class="button-stable icon-small ion-person-add listbutton"
+        ng-click="konnect_f(attendee);close()" ng-hide="attendee.konnect || attendee.hasReceivedConnectionRequest || attendee.afterAccept">
+          Connect
+        </button>
+        
+       <button class="button-stable icon-small ion-paper-airplane listbutton"
+        ui-sref="app.dialogue({userId:attendee.id})"ng-click="close()"  >
+          Message
+        </button>
+
+    </div>
+    </div>
+   </ion-list>
+ </ion-content>

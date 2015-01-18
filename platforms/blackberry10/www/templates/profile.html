@@ -1,0 +1,114 @@
+<ion-view title="My Profile" >
+
+<ion-content>
+
+	<ion-nav-buttons side="left">
+		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+
+<style type="text/css">
+.right {
+    position: absolute;
+    right: 9px;
+}
+</style>
+
+	
+
+		<ion-list>
+			<div class="item item-thumbnail-left item-text-wrap">
+
+				<img src="{{myProfile.pictureUrl}}" style="margin-left: 0px" />
+				
+				<h1 style="margin-top:5px">{{myProfile.firstName}} {{myProfile.lastName}}</h1>
+				<h3 >Click on the edit button to enable editing </h3>
+				
+			</div>
+
+
+
+		</ion-list>
+			
+	
+		<div class="list card">
+			<form editable-form name="editableForm" >
+			<div class="item item-body item-text-wrap ionic scroll" >
+			<div>
+				<h2><font size="5">Profession</font></h2> 	<button type="button" class="button button-small icon ion-edit right" ng-click="editableForm.$show()" ng-show="!editableForm.$visible" align="right"> 
+		    </button><br><br>
+		    	</div>
+				<span class="edit-profile" editable-textarea="myProfile.headline" e-form="textBtnForm">
+
+					{{myProfile.headline || 'Not filled' }}
+				</span>
+				<br><br>
+
+
+				<h2><font size="5">Industry</font></h2><br><br>
+				<span class="edit-profile" editable-textarea="myProfile.industry" e-form="textBtnForm">
+					{{myProfile.industry || 'Not filled' }}
+				</span>
+				<br><br>
+
+
+				<h2><font size="5">Summary</font></h2><br><br>
+				<span class="edit-profile" editable-textarea="myProfile.mySummary" e-form="textBtnForm">
+					{{myProfile.mySummary || 'Not filled' }}
+				</span>
+				<br><br>
+
+		      <!-- buttons to submit / cancel form -->
+		      <div>
+		      <span ng-show="editableForm.$visible">
+		        <div class="button-bar">
+		        <button type="submit" class="button btn-success btn-primary" ng-disabled="editableForm.$waiting" ng-click="change()">
+		          Save
+		        </button>&nbsp;&nbsp;
+		        <button type="button" class="button btn-primary" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+		          Cancel
+		        </button>
+		    </div>
+		      </span>
+		      </div>
+			  </form>
+
+				<h2><font size="5">Networking Tags</font></h2><br>
+<!--				<span class="edit-profile" >
+					{{interestsString || 'Not filled' }}
+				</span>
+
+				<br><br>
+-->
+
+		      <div ng-repeat="interest in myProfile.interests" style="margin-right:20px">
+		      	
+		      	<div >		      	
+		          <span style="padding:8px 2px 3px 3px;margin-bottom:4px;border:1px solid #AEAEAE;border-radius:5px;line-height: 3em;" contenteditable="false" ng-if="interest">{{interest}} 
+		            <button  class="button button-small button-clear" ng-click="myProfile.interests.splice($index, 1); change()">&#xD7;
+         		    </button> 
+		           </span>    
+		        </div>
+		      </div>  
+
+
+		
+			<form>
+		      <div id="interest">
+			          <input id="interest" type="text" ng-model="newInterest.one" placeholder="Add interest here" style="border:1px solid #AEAEAE; width: 60%" onkeydown="if (event.keyCode === 13) {return true;}"></input> 
+			            <button class="btn btn-success btn-sm icon ion-plus"
+						ng-click="addInterests()" >
+							Add interest
+						</button>       
+			        </div>
+			</form>
+
+	
+			
+	</div>
+
+	</ion-content>
+</ion-view>
+		
+
+
+

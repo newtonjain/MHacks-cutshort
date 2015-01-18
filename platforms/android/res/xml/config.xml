@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.konectivity.one" version="0.0.18" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <preference name="loglevel" value="DEBUG" />
+    <feature name="Keyboard">
+        <param name="android-package" value="com.ionic.keyboard.IonicKeyboard" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="PushPlugin">
+        <param name="android-package" value="com.plugin.gcm.PushPlugin" />
+    </feature>
+    <feature name="Camera">
+        <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
+    </feature>
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+    <feature name="File">
+        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="FileTransfer">
+        <param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer" />
+    </feature>
+    <feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    </feature>
+    <feature name="Media">
+        <param name="android-package" value="org.apache.cordova.media.AudioHandler" />
+    </feature>
+    <feature name="NetworkStatus">
+        <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+    </feature>
+    <feature name="StatusBar">
+        <param name="android-package" onload="true" value="org.apache.cordova.statusbar.StatusBar" />
+    </feature>
+    <feature name="ProgressIndicator">
+        <param name="android-package" value="org.apache.cordova.plugin.ProgressIndicator" />
+    </feature>
+    <name>Cut-short</name>
+    <description>
+    </description>
+    <author email="hi@ionicframework" href="http://ionicframework.com/">
+      Cut-short Team
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <access origin="http://54.88.187.36" subdomains="true" />
+    <access origin="http://54.88.187.36:3000/auth/linkedin/callback" subdomains="true" />
+    <access origin="http://54.88.187.36:3000/auth/linkedin/*" subdomains="true" />
+    <access origin="http://54.172.235.48:3000" subdomains="true" />
+    <access origin="http://54.209.43.90:3000" subdomains="true" />
+    <access origin="http://54.187.184.106:3000" subdomains="true" />
+    <preference name="websecurity" value="disable" />
+    <preference name="fullscreen" value="false" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="UIWebViewBounce" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    <icon src="/platforms/android/res/drawable/icon.png" />
+    <preference name="BackupWebStorage" value="none" />
+</widget>

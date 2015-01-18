@@ -1,0 +1,252 @@
+
+<ion-view class="title" title="{{eventTitle}}" >
+   
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    <ion-nav-buttons side="left">
+  </ion-nav-buttons>
+  <!--<ion-nav-buttons side="right">
+     <button ng-click="showActionsheet()" class="button button-stable buttontext" style="background-color: #2c8dd9;  color:#FFFFFF ; font-family:Helvetica"><b>Menu</b></button>    
+    </ion-nav-buttons>-->
+    
+  
+<style>
+  .title{
+    font-family: Helvetica;
+    z-index: 1;
+  }
+  .buttontext{
+    color:#FFFFFF ;
+  }
+  .sponsor_image{
+    max-width:80%; 
+    max-height:30%;
+  }
+  h3 {
+    font-family: Helvetica;
+    color:black;
+  }
+  h1 {
+    font-family: Helvetica;
+    color:black;
+    font-size:25px;
+  }
+  h6 {
+    font-family: Helvetica;
+    color:black;
+    text-align: justify;
+    padding-left:10px;
+  padding-right:10px;
+  }
+   h5 {
+    font-family: Helvetica;
+    color:black;
+    text-align: justify;
+    padding-left:10px;
+  padding-right:10px;
+  }
+   h4 {
+    font-family: Helvetica;
+    color:black;
+      padding-left:10px;
+  padding-right:10px;
+ 
+  }
+ 
+  .font{
+     font-family: Helvetica;
+  }
+  .indent {
+    text-indent: 50px;
+  }
+  a{
+    text-decoration: underline;
+    color:black;
+  }
+
+#toplink {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    line-height: 30px;
+    height: 30px;
+    color: white;
+    background: black;
+}
+
+
+.card{
+  border:solid 2px #ccc; 
+}
+.selectcolor{
+  
+  color: #fe9923;
+}
+.formatted{
+   padding-left:10px;
+  padding-right:10px;
+}
+.wraptocenter {
+    vertical-align: middle;
+    align: center;
+}
+.wraptocenter * {
+    vertical-align: middle;
+    display: inline-block;
+}
+a {
+  text-decoration: none;
+}
+.container {
+  max-width: auto;
+  margin: 0 auto;
+}
+
+.container ul li {
+  color: darkgrey;
+  display: inline-block;
+}
+.container ul li a {
+  font-weight: bold;
+  display: inline-block;
+  padding: 1em;
+}
+@media screen and (min-width: 1140px) {
+  .container ul li a {
+}}
+.topps{
+padding-bottom: 44px;
+}
+</style>
+
+
+    <ion-tabs class="tabs-positive tabs-icon-only">
+
+  <ion-tab title="Home" icon-on="ion-ios7-information" icon-off="ion-ios7-information-outline" on-select="slideTo(0)">
+  <ion-content>
+
+
+
+         <div class="row">
+  <div class="col col-33" align="center"> 
+    <img  ng-src="{{eventinfo.LogoURL}}" style="margin-left:15px; margin-right:15px; align: center" align="center" height="80px" width="80px"/>
+  </div>
+  <div class="col col-67 "> 
+
+         <h4>{{eventinfo.EventTitle}}</h4>
+        <h6 >--hosted by: {{eventinfo.EventOgnzer}}</h6>
+        <!-- <button   class="button button-small button-royal ion-person-stalker" type="button" ng-click="open()" ng-if = "attendees">Attendees</button> -->
+</div>
+</div>
+
+      <div class="card" >
+                  
+                <br><h5>Event Date & Time: <b> <br><br><p> {{eventinfo.EventTime}} </b></h5> 
+                <br><h5> Event Address:<b><a href ng-click="maplink(eventinfo.EventAddress)" > <br><br><p >{{eventinfo.EventAddress}} </p></a></b></h5>
+                <br><h5>Contact Person:<b>  <br><br><p align="left">{{eventinfo.ContactPerson}}</b> </p></h5>
+              
+               <br><h5 ><p ng-if="eventinfo.ContactEmail">Email:<b>  <br><p align="left">{{eventinfo.ContactEmail}}</p></b></h5>
+
+               <br><h5 ><p ng-if="eventinfo.ContactTel">Telephone:<a href="tel:{{eventinfo.ContactTel}}"><b> <br><p align="left">{{eventinfo.ContactTel}}</p></a></b></h5>
+
+              <br>  <div ng-if="eventinfo.ContactFax"><h5 >Event Link:<b><a href ng-click="newWindow(eventinfo.ContactFax)"><br><p>More information here.</p></a></b></h5></div>
+              </div>
+            </ion-content>
+  </ion-tab>
+
+  <ion-tab title="About" icon-on="ion-ios7-calendar" icon-off="ion-ios7-calendar-outline" on-select="slideTo(1)">
+  <ion-content>
+
+
+
+         <div class="row">
+  <div class="col col-33" align="center"> 
+    <img  ng-src="{{eventinfo.LogoURL}}" style="margin-left:15px; margin-right:15px; align: center" align="center" height="80px" width="80px"/>
+  </div>
+  <div class="col col-67 "> 
+
+         <h4>{{eventinfo.EventTitle}}</h4>
+        <h6 >--hosted by: {{eventinfo.EventOgnzer}}</h6>
+        <!-- <button   class="button button-small button-royal ion-person-stalker" type="button" ng-click="open()" ng-if = "attendees">Attendees</button> -->
+</div>
+</div>
+        <div class="card" >
+    
+           <div  class="image_carousel">
+            <p><center>Tap on the image and pinch to zoom in.</center></p>
+             <a href  ng-click="zoomin(eventinfo.ScheduleURL)"><img ng-src="{{eventinfo.ScheduleURL}}" width="100%"><br></br></a>
+             
+             <div class="floorplanimage" ng-repeat="floorplan in eventinfo.EventFloorPlan">
+              <center><a href  ng-click="zoomin(floorplan)"><img ng-src="{{floorplan}}" width="100%"></a></center>
+            </div>
+          </div>
+        </div>
+      </ion-content>
+  </ion-tab>
+
+  <ion-tab title="Settings" icon-on="ion-ios7-mic" icon-off="ion-ios7-mic-outline" on-select="slideTo(2)">
+  <ion-content>
+
+
+
+         <div class="row">
+  <div class="col col-33" align="center"> 
+    <img  ng-src="{{eventinfo.LogoURL}}" style="margin-left:15px; margin-right:15px; align: center" align="center" height="80px" width="80px"/>
+  </div>
+  <div class="col col-67 "> 
+
+         <h4>{{eventinfo.EventTitle}}</h4>
+        <h6 >--hosted by: {{eventinfo.EventOgnzer}}</h6>
+        <!-- <button   class="button button-small button-royal ion-person-stalker" type="button" ng-click="open()" ng-if = "attendees">Attendees</button> -->
+</div>
+</div>
+    <div   ng-repeat="plenary in eventinfo.Speakers" class="card">
+          <div class="item item-thumbnail-right item-text-wrap">
+          <img src="{{plenary.picture}}" style="margin-right: 0px" />
+         <h1 style="margin-top:5px">{{plenary.name}}</h1>
+           </div>
+           <h4>{{plenary.title}}</h4>
+           <p class="formatted">
+          {{plenary.content}}
+          </p>
+          <h5>
+          <a href ng-click="newWindow(plenary.hyperlink)">{{plenary.hyperlink}}</a>
+          </h5>  
+          <br><h5>
+          {{plenary.email}}
+          </h5>    
+          </div>
+        </ion-content>
+  </ion-tab>
+
+  <ion-tab title="Settings" icon-on="ion-ios7-briefcase" icon-off="ion-ios7-briefcase-outline" on-select="slideTo(3)">
+  <ion-content>
+
+
+
+         <div class="row">
+  <div class="col col-33" align="center"> 
+    <img  ng-src="{{eventinfo.LogoURL}}" style="margin-left:15px; margin-right:15px; align: center" align="center" height="80px" width="80px"/>
+  </div>
+  <div class="col col-67 "> 
+
+         <h4>{{eventinfo.EventTitle}}</h4>
+        <h6 >--hosted by: {{eventinfo.EventOgnzer}}</h6>
+        <!-- <button   class="button button-small button-royal ion-person-stalker" type="button" ng-click="open()" ng-if = "attendees">Attendees</button> -->
+</div>
+</div>
+    <div class="card">
+          <!--  Review Tab's Content  -->
+          
+            <!--  Product Reviews List -->
+            <h4></h4>
+            <div  ng-repeat="image in eventinfo.Sponsors">
+            <br> <center><a href ng-click="newWindow(image.link)"><img ng-src="{{image.logo}}" class="sponsor_image"></a></center></br>
+            </div>
+          </div>
+        </ion-content>
+  </ion-tab>
+
+</ion-tabs>
+
+
+</ion-view>

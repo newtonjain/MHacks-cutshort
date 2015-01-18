@@ -1,0 +1,71 @@
+<ion-view title="Konnectivity" style="overflow:scroll">
+    <style>
+h6 {
+    font-family: Geogia;
+    font-style: italic;
+    color:rgb(99,39,125);
+}
+
+h5 {
+  font-family: Geogia;
+    font-style: italic;
+}
+
+.button{
+  width:70%;
+}
+
+.form{
+  width:95%;
+  margin-left:10px;
+}
+
+.input{
+  width:95%;
+
+}
+
+
+
+</style>
+
+	<div align="center" style ="padding-top: 20px; padding-bottom: 20px">
+		<img src ="img/klogo.png"  height="60px"  ></img>
+		<br>
+		<p>
+			<b><h6 color="red">Unlocking the power of human networks</h6></b>
+		</p>
+		<!--<p id="geolocation">Finding geolocation...</p>-->
+</br>
+	</div>
+	<div class="container">
+
+		<div class="panel panel-default">
+			<div class="panel-heading" align="center">
+				<h3 class="panel-title">Sign in With</h3>
+			</div>
+			<br>
+
+			<a   nav-clear menu-close ng-click="signIn()">
+			<center><button class="button button-large btn-block" id="loginbtn"  nav-clear menu-close ><img src ="img/LinkedIn-Logo.png"  height="20px"  ></img></button></center></a>
+
+
+	    <div class="login-or" align="center" >
+        <hr class="hr-or"   >
+        <span class="span-or" ><b></b></span>
+      </div>
+
+
+      <center><div style ="padding-bottom: 40px"><h3 class="panel-title">Or</h3><br><button class="button button-large btn-block"  nav-clear menu-close ui-sref="signup"><h4 >Email</h4></button></div></center>
+     
+
+
+			<div class="panel-footer" align="center">
+				<h3 class="panel-title"></h3>
+			</div>
+
+    </div>
+
+    <div style="text-align:center">*We do not post anything to LinkedIn</div>
+  </div>
+</ion-view>

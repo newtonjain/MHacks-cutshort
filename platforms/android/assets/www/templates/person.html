@@ -1,0 +1,93 @@
+<ion-view title="{{match}}" >
+ <style >
+.centered{
+ 	margin-left: auto;
+ 	margin-right: auto;
+ 	display: table;
+ } 
+ .centeringContainer{
+ 	text-align: justify;
+ } 
+
+.ion-content{
+	border-bottom:0px;
+}
+	
+
+ </style>
+
+
+    <ion-tabs class="tabs-positive tabs-icon-only">
+
+  <ion-tab title="Home" icon-on="ion-ios7-information" icon-off="ion-ios7-information-outline" on-select="slideTo(0)">
+  <ion-content>
+		<ion-list>
+			<div ng-repeat="team in teams" class="item item-thumbnail item-text-wrap card" >
+				<p align="center">{{team.name}}</p>
+				<div class="row">
+  <div class="col"><img src="img/kguy.png"  class="headshot"/><center>{{team.members[0]}}</center></div>
+  <div class="col"><img src="img/kguy.png"  class="headshot"/><center>{{team.members[1]}}</center></div>
+				</div>
+				<br>
+	<div class="row">
+  <div class="col"><img src="img/kguy.png"  class="headshot"/><center>{{team.members[2]}}</center></div>
+  <div ng-show='!joined' class="col"><img src="img/bprofile.png"  class="headshot"/></div>
+   <div ng-show='joined' class="col"><img src="{{myProfile.pictureUrl}}"  class="headshot"/><center>
+{{myProfile.firstName}} {{myProfile.lastName}}
+   </center></div>
+				</div>
+				
+				<br> <p align="center"><b>Summary</b></p>
+
+				<div align="center">
+			
+					This is a summary about {{match}} group.
+		
+				</div>
+
+				<br>
+				<div ng-click='addingNote(team.to_do); joined = !joined'>
+				<center>
+				<button  ng-hide="joined" class="button button-small button-balanced icon ion-person-add">
+					Join Team
+				</button>
+				<button  ng-show="joined" class="button button-small button-assertive icon ion-person-add">
+					Leave Team
+				</button>
+				</center>
+				</div>
+				</div>
+
+	</ion-content>
+
+	  </ion-tab>
+
+	   <ion-tab title="Wall" icon-on="ion-ios7-calendar" icon-off="ion-ios7-calendar-outline" on-select="slideTo(1)">
+	   		<ion-content>
+	   		    <br>
+	    	<br>
+ 			<div class="message" style="padding:10px" >
+              <textarea class="form-control" id="newmessage" name="message" ng-model="newmessage" placeholder="Post to the Hacker wall" rows="6"></textarea>
+             </div>  
+
+              <div>
+				<button class="button btn-block winning" ng-click="addToWall(newmessage); newmessage =''">Submit</button>
+     
+        	 </div>
+
+        	 <div ng-repeat="wms in wallMessages" class="item item-thumbnail-left item-text-wrap card">
+        	 	<img src="img/kguy.png" class="headshot menu-item" style="margin-left: 0px" />
+        	 	<div style="padding-top:25px">{{wms}}</div>
+        	 	
+
+        	 </div>
+
+
+	</ion-content>
+
+	  </ion-tab>
+
+</ion-tabs>
+
+</ion-view>
+

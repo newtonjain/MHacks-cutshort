@@ -1,0 +1,106 @@
+<style>
+    .listbutton{
+ 
+      max-width:60px;
+      height:24px;
+      font-size: 7px;
+      text-align: center;
+
+
+    }
+  
+    .ppllist{
+      background: transparent;
+    }
+    </style>
+ 
+    <ion-content  scroll="true" overflow-scroll="ture">
+    
+    <button class="button button-small button-royal icon ion-close-circled"
+       ng-dialog-scope="this" ng-click="close()">
+          Close
+        </button>
+      
+   <ion-list>
+  <div class="item item-thumbnail-left item-text-wrap" 
+      bindonce ng-repeat="match in searchedMatches " 
+
+      style="background-color: {{ match.hasNewMessages ? '#ddddff' : (match.hasReceivedConnectionRequest ? '#f8fff4' : '#ffffff') }};" >
+
+
+
+        <img src="{{match.pictureUrl}}" onError="this.onerror=null;this.src='img/kguy.png';" class="headshot menu-item" style="margin-left: 0px" />
+
+        <h2 ng-bind-html="match.firstName  | highlight:searchText">{{match.firstName}}</h2>
+        <h2 ng-bind-html="match.lastName | highlight:searchText">{{match.lastName}}</h2>
+        <p ng-bind-html="match.headline | highlight:searchText">
+          {{match.headline}}
+        </p>
+        <p ng-bind-html="match.industry | highlight:searchText">
+          {{match.industry}}
+        </p>
+        <div ng-if="([match.summary] | filter:searchText : exceptEmptyComparatorSummary).length > 0 && getsearchSummary && searchText">
+        <h6>Summary:</h6>
+        <p ng-bind-html="personalSummary | highlight:searchText"  style="text-overflow: ellipsis; overflow:hidden; white-space:nowrap; width: 100%;">{{personalSummary}}</p>  
+        </div>
+        <div ng-if="([match.interests] | filter:searchText : exceptEmptyComparatorInterest).length > 0 && getsearchInterest && searchText">
+        <h6>Interests:</h6>
+        <p ng-bind-html="searchinterest | highlight:searchText"  style="text-overflow: ellipsis; overflow:hidden; white-space:nowrap; width: 100%;">{{searchinterest}}</p>  
+        </div>
+        
+        <div ng-if="match.commonInterest">
+        
+        <h6 class="textinterest"><b>{{match.numInterests}}</b> Common Interests: &nbsp</h6>
+        
+        
+        <p><span class="textcolor"><b>{{(match.commonInterest).join(",")}}</b></span></p>  
+        </div>
+
+        <button class="button button-small icon ion-android-search"
+
+        ng-click="viewPerson(match); searchText={}">
+          View Profile
+
+        </button>
+
+
+        <button class="button button-small ion-person-add"
+        ng-click="konnect_f(match) ; animate=!animate " ng-hide="match.konnect || match.hasReceivedConnectionRequest || match.afterAccept">
+          Connect
+        </button>
+        
+        <p ng-if="match.konnect && !match.hasReceivedConnectionRequest && !match.afterAccept" class="animated" ng-class="{bounceIn: !animate}">
+          Connection request sent
+        </p>
+
+        <p ng-if="match.hasReceivedConnectionRequest">
+          Accept connection request?
+        </p>
+        <button class="btn btn-success btn-sm icon ion-checkmark"
+        ng-click="konnect_accept(match)" ng-if="match.hasReceivedConnectionRequest">
+          Accept
+        </button>
+        <button class="btn btn-danger btn-sm icon ion-close"
+        ng-click="konnect_reject(match)" ng-if="match.hasReceivedConnectionRequest"
+        style="align-right:40px">
+          Decline
+        </button>
+
+        <button class="button button-small ion-paper-airplane" ui-sref="app.dialogue({userId:match.id})" ng-if="match.afterAccept && !clicked && !match.hasNewMessages">
+          Messaging
+
+        </button>
+        <button class="button button-balanced button-small ion-paper-airplane" ui-sref="app.dialogue({userId:match.id})" ng-if="match.afterAccept && !clicked && match.hasNewMessages">
+          Messaging
+
+        </button>
+        
+
+        <p ng-if="match.hasNewMessages">
+          <b>You have new messages</b>
+        </p>
+
+
+      </div>
+   </ion-list>
+ </ion-content>

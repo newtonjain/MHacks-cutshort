@@ -1,0 +1,275 @@
+
+<ion-view title="{{signingTitle}}" style="overflow:scroll">
+
+<!--     <ion-nav-bar class="bar-stable nav-title-slide-ios7">
+      
+        <button menu-toggle="left" class="button button-icon ion-chevron-left" ui-sref="login"> Back</button>
+      
+    </ion-nav-bar>
+ -->
+    <br><br><br>
+
+    <style>
+
+.card{
+  border:solid 2px #ccc; 
+}
+.input{
+  width:95%;
+
+}
+
+.form{
+  width:95%;
+  margin-left:10px;
+}
+
+
+.nav {
+display: inline-block;
+
+}
+
+.shadowbox{
+box-shadow: 1px 1px 1px grey;
+
+}
+
+h6 {
+    font-family: Geogia;
+    font-style: italic;
+    color:rgb(99,39,125);
+}
+</style>
+
+
+<ion-header-bar class="bar-light">
+       <button  class="button button-stable icon ion-chevron-left" ui-sref="login"></button>
+      <div class="button-bar">
+       
+     
+        <button
+                class="button button-stable "
+                ng-click="status.rotateDemo = false; setTab(11)"
+                ng-class="{'button-positive': tab==11}">Sign In</button>
+        <button
+                class="button button-stable "
+                ng-click="status.rotateDemo = true; setTab(12)"
+                ng-class="{'button-positive': tab==12}"> Sign Up</button>
+        </div>
+    </ion-header-bar>
+
+<!-- <ion-tabs class="tabs-dark tabs-icon-only">
+
+  <ion-tab title="Sign In" on-select="selectTabWithIndex(0)">
+  
+<ion-content class="container">
+<br>
+     
+
+         </ion-content> 
+  </ion-tab>
+
+  <ion-tab title="Sign-Up" on-select="selectTabWithIndex(1)" >
+      <br><br>
+      <ion-content class="container">
+      <br>
+         
+        </ion-content>
+  </ion-tab>
+
+
+
+</ion-tabs> -->
+
+    <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+<ion-content>
+
+  <div align="center" style ="padding-top: 20px; padding-bottom: 20px">
+    <img src ="img/klogo.png"  height="60px"  ></img>
+    <br>
+    <p>
+      <b><h6 color="red">Unlocking the power of human networks</h6></b>
+    </p>
+    <!--<p id="geolocation">Finding geolocation...</p>-->
+  </div>
+    
+ <!--    <div align="center" style ="padding-top: 20px; padding-bottom: 40px">
+    <img src ="img/klogo.png"  height="60px"  ></img>
+    </div> -->
+
+    <body>
+  
+   
+
+
+
+<!--     <ul class="nav nav-tabs row">
+        
+
+          <li class="col col-50" ng-class="{ active:isSet(11) }" >
+          <a href ng-click="setTab(11)"><center>Sign In</center></a>
+          </li>
+          <li  class="col col-50" ng-class="{ active:isSet(12) }">
+          <a href  ng-click="setTab(12)"><center>Sign Up</center></a>
+          </li>
+       
+
+    </ul>  -->
+
+            <div ng-show="isSet(11)" class="container">
+  
+<div class="panel-body panel panel-default fadeUp">
+
+
+            <form ng-submit="noLinkedinSignIn(userEmail,password)" accept-charset="UTF-8" role="form" nonvalidate>
+            <fieldset>
+             <!--   
+          <div class="form-group">
+                <div class="input-group" data-validate="name">
+            <input type="text" class="form-control" name="name" id="name" ng-model="userName" placeholder="Name" required>
+            <span class="input-group-addon danger "></span>
+                  </div>
+          </div>
+            -->
+   
+          <div class="form-group form ">
+            <div class="input-group input shadowbox" data-validate="email">
+              <input type="text" class="form-control" name="validate-email" id="validate-email" ng-model="userEmail" placeholder="Email" required>
+              
+            </div>
+          </div>
+
+      
+
+          <div class="form-group form">
+            <div class="input-group input shadowbox" data-validate="password">
+              <input type="password" class="form-control" name="password" id="password" ng-model="password" placeholder="password" required>
+             
+            </div>
+          </div>
+
+        <div>
+      <center><h5><button class="button button-large btn-block" id="loginbtn"  nav-clear menu-close >Login</button></h5></center>
+        </div>
+        </fieldset>
+        
+        </form>
+          </div>
+          <center><font size="2">Don't have a konectivity account -  <a  ng-click="setTab(12)">Sign Up</a></font></center>
+
+    </div>
+
+     <div ng-show="isSet(12)" class="container">
+     <div class="panel-body panel panel-default fadeUp" >
+            <form  name="reviewForm" accept-charset="UTF-8" role="form" novalidate>
+                    <fieldset>
+               
+          <div class="form-group form">
+                <div class="input-group input shadowbox" data-validate="firstName">
+            <input type="text" class=" glowing-border form-control" name="firstName" id="firstName" ng-model="handlefirstName" placeholder="First Name" required>
+           
+          </div>
+          </div>
+
+          <div class="form-group form">
+                <div class="input-group input shadowbox" data-validate="lastName">
+            <input type="text" class="glowing-border form-control" name="lastName" id="lastName" ng-model="handlelastName" placeholder="Last Name" required>
+            
+          </div>
+          </div>
+
+          <div class="form-group form">
+            <div class="input-group input shadowbox" data-validate="profession">
+              <input type="text" class="glowing-border form-control" name="profession" id="profession" ng-model="handleProf" placeholder="Profession" required>
+             
+            </div>
+          </div>
+      
+          <div class="form-group form" data-validate="email">
+            <div class="input-group input shadowbox" data-validate="email">
+              <input type="text" class="glowing-border form-control" name="validate-email" id="validate-email" ng-model="handleEmail" placeholder="Email" required>
+             
+            </div>
+          </div>
+
+          <div class="form-group form">
+            <div class="input-group input shadowbox" data-validate="password">
+              <input type="password" class="glowing-border form-control" name="password" id="password" ng-model="handlePasswd" placeholder="Password" required>
+              
+            </div>
+           
+          </div>
+           
+ <!--    
+              <div class="form-group" ng-repeat="i in numOfKeyWords" style="display:inline-block;padding: 5px;">
+              <textarea class="form-control" id="preferences" name="prefereces" ng-model="keywordHolder[i-1]" placeholder="Interest" {{i}} maxlength="30" rows="1" style="width:250px;"></textarea>
+             
+              <textarea class="form-control" id="preferences" name="prefereces" ng-model="handleKeywords1" placeholder=" Please provide specific keywords for networking..." maxlength="30" rows="1" style="width:250px;display:inline-block"></textarea>
+              <textarea class="form-control" id="preferences" name="prefereces" ng-model="handleKeywords2" placeholder=" Please provide specific keywords for networking..." maxlength="30" rows="1" style="width:250px;display:inline-block"></textarea>
+              <textarea class="form-control" id="preferences" name="prefereces" ng-model="handleKeywords3" placeholder=" Please provide specific keywords for networking..." maxlength="30" rows="1" style="width:250px;display:inline-block"></textarea>
+              <textarea class="form-control" id="preferences" name="prefereces" ng-model="handleKeywords4" placeholder=" Please provide specific keywords for networking..." maxlength="30" rows="1" style="width:250px;display:inline-block"></textarea>
+              <textarea class="form-control" id="preferences" name="prefereces" ng-model="handleKeywords5" placeholder=" Please provide specific keywords for networking..." maxlength="30" rows="1" style="width:250px;display:inline-block"></textarea>
+              <textarea class="form-control" id="preferences" name="prefereces" ng-model="handleKeywords6" placeholder=" Please provide specific keywords for networking..." maxlength="30" rows="1" style="width:250px;display:inline-block"></textarea>
+              <textarea class="form-control" id="preferences" name="prefereces" ng-model="handleKeywords7" placeholder=" Please provide specific keywords for networking..." maxlength="30" rows="1" style="width:250px;display:inline-block"></textarea>
+
+              </div>  
+-->  
+
+           <div class="form-group form" >
+            
+              <textarea class="form-control shadowbox" id="pitch" name="pitch" ng-model="handleDescript" style="text-align: justify; word-wrap: normal" placeholder="Enter summary here - example: A journalist who is passionate about social welfare ..." rows="3" ></textarea>
+              </div>  
+
+    
+    <div class="form-group form" >
+       
+      <div class="input-group input">
+        <input class="form-control input-group input shadowbox" style="border:1px solid #AEAEAE; width: 80%" id="interest" type="text" ng-model="interestFld" placeholder="Add networking tags! e.g. finance" onkeydown="if (event.keyCode == 13) return true;" required>
+
+            <button  ng-click="addInterest(interestFld); interestFld ='' " class="button button-small btn-success">Add &#43;
+              
+            </button>
+            
+        </div>
+    </div>
+
+
+    <div>
+      <div ng-repeat="interest in interests" >
+        <div>
+          <span style="padding:8px 2px 3px 3px;margin-bottom:10px;border:1px solid #AEAEAE;border-radius:5px;line-height: 3em;" contenteditable="false">{{interest}}
+          <button  class="button button-small button-clear" ng-click="interests.splice($index, 1)" >&#xD7;
+          </button>    
+          </span>
+        </div>
+      </div>  
+    </div>
+
+
+   <br>
+   <center><a ng-click="terms()"> <font size="2">Terms of Service and Privacy Policy </font></a></center> 
+
+ 
+
+   <ion-checkbox class="item item-checkbox" ng-click="checked=!checked"> <font size="1">&nbsp;&nbsp;Agree to Terms and Conditions</font> </ion-checkbox> 
+
+   <br>
+    <div style="margin-bottom:10px" ng-show="checked">
+              <center><button class="button button-large button-balanced btn-block"  nav-clear menu-close ng-click="signupHandler(handlefirstName,handlelastName,handleProf,handleEmail,handlePasswd,handleDescript,keywordHolder)">Sign Up</button></center>
+
+    </div>
+
+        </fieldset>
+              </form>
+
+          </div>
+
+</div>
+
+</body>
+</ion-content>
+
+</ion-view>
+

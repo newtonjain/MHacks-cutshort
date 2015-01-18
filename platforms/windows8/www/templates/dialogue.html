@@ -1,0 +1,55 @@
+<ion-view title="{{talkerFullName}}">
+<style>
+h6{
+	font-style: italic;
+	font-size:8px;
+	font-color:#A0A0A0;
+	float:top;
+
+}
+</style>
+	<ion-header-bar frosted-bar title="'Title'" type="bar-frosted"></ion-header-bar>
+	<ion-content padding="true" has-header="true" has-footer="true" start-y="120">
+		<ol  class="messages">
+
+			<li ng-repeat="message in messages" class="{{message.isSelf ? 'is-own-message' : ''}} ">
+				<p ng-bind-html="message.content"></p>
+				<h6>{{message.time}}</h6>
+			</li>
+
+			<li style="visibility:hidden">
+				<p></p>
+			</li>
+			<li style="visibility:hidden">
+				<p></p>
+			</li>
+			<li style="visibility:hidden">
+				<p></p>
+			</li>
+			<li style="visibility:hidden">
+				<p></p>
+			</li>
+			<li style="visibility:hidden">
+				<p></p>
+			</li>
+
+		</ol>
+
+	</ion-content>
+
+<div id="footer" class="bar bar-footer bar-frosted item item-input-inset " >
+   <div class="row">
+  <div class="col col-90">
+     	
+	<form ng-submit="message_handler(send_message)" >
+    <textarea rows="3" cols="30" type="text" class="form-control"  ng-model="send_message" placeholder="Enter your message..."></textarea>
+    </form> 
+  </div>
+<div class="col">
+  <button class="button icon button-clear button-dark ion-paper-airplane" ng-click="message_handler(send_message)">
+    
+  </button>
+</div>
+</div>
+	</div>
+</ion-view>

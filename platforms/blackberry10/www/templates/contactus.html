@@ -1,0 +1,87 @@
+<ion-view title="Settings" >
+<ion-content>
+<ion-nav-buttons side="left">
+<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+</ion-nav-buttons>
+<style>
+ h3 {
+    font-family: Helvetica;
+  }
+
+ h2 {
+ 	font-family:Helvetica;
+ 	font-size: 40px;
+
+ }
+ h4 {
+ 	font-family: Helvetica;
+ }
+
+ .input {
+border:0; 
+padding:10px; 
+font-size:1.3em; 
+font-family:"Ubuntu Light","Ubuntu","Ubuntu Mono","Segoe Print","Segoe UI";
+
+border:solid 1px #ccc; 
+margin:0 0 20px; 
+width:80%;
+-moz-box-shadow: inset 0 0 4px rgba(0,0,0,0.2); 
+-webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2); 
+box-shadow: inner 0 0 4px rgba(0, 0, 0, 0.2);
+-webkit-border-radius: 3px; 
+-moz-border-radius: 3px; 
+border-radius: 3px;
+
+}
+input:focus { 
+    outline: none !important;
+    border:1px solid red;
+    box-shadow: 0 0 80% #719ECE;
+}
+ </style>
+
+ <br>
+<div class="container">
+
+    <div class="panel panel-default">
+      <div class="panel-heading" align="center">
+        <h3 class="panel-title">Contact Us</h3>
+      </div>
+<div style="padding:8px">
+ <h5 align="justify">If you have any feedback, please email us at: contact@konectivity.com</h5>
+
+</div>
+
+
+ <fieldset>
+ 			<div class="message" >
+              <textarea class="form-control" id="message" name="message" ng-model="handleDescript" placeholder="OR send us a quick note here ..." rows="6"></textarea>
+             </div>  
+             <br></br>
+
+              <div>
+				<button class="button btn-block" ng-click="sendMessages(message)">Submit</button>
+        <br>
+        	 </div>
+
+<fieldset>
+ 
+
+  </div>
+  </div>
+
+  <div class="container">
+
+    <div class="panel panel-default">
+      <div class="panel-heading" align="center">
+        <h3 class="panel-title">See you soon...</h3>
+      </div>
+     
+      <br>
+      <button class="button btn-block" ui-sref="app.logout">Logout</button>
+      <br>
+           </div>
+         </div>
+</ion-content>
+</ion-view>

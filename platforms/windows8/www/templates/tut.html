@@ -1,0 +1,278 @@
+  <style>
+body.noscroll
+{
+    position: fixed; 
+    overflow-y: scroll;
+    width: 100%;
+     height: 100%;
+}
+.slider {
+  height: 100%;
+}
+.slider-slide {
+  padding-top: 80px;
+  color: #000;
+  background-color: #fff;
+
+
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-weight: 300;
+}
+
+#logo {
+  margin: 30px 0px;
+}
+
+#list {
+  width: 170px;
+  margin: 30px auto;
+  font-size: 20px;
+}
+#list ol {
+  margin-top: 30px;
+}
+#list ol li {
+  text-align: left;
+  list-style: decimal;
+  margin: 10px 0px;
+}
+
+.textheader{
+  font-family: Helvetica;
+  color:#0099FF;
+  text-align:left;
+  padding-left:10px;
+}
+
+.textcontent{
+  font-family: Helvetica;
+ 
+  padding-left:10px;
+  padding-right:10px;
+
+}
+
+.mainpage{
+  background-image: url(img/main.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-bottom:5px solid #0099FF;
+  border-top:0px;
+  margin-top:-60px;
+  width:100%;
+  height:65%;
+  background-position: center;
+  background-origin: center top;
+  
+}
+
+.P1page{
+  background-image: url(img/P1.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-bottom:5px solid #0099FF;
+  border-top:0px;
+  margin-top:-60px;
+  width:100%;
+  height:65%;
+  background-position: center;
+  background-origin: center top;
+  
+}
+
+.P2page{
+  background-image: url(img/P2.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-bottom:5px solid #0099FF;
+  border-top:0px;
+  margin-top:-60px;
+  width:100%;
+  height:65%;
+  background-position: center;
+  background-origin: center top;
+  
+}
+
+.P3page{
+  background-image: url(img/P3.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-bottom:5px solid #0099FF;
+  border-top:0px;
+  margin-top:-60px;
+  width:100%;
+  height:65%;
+  background-position: center;
+  background-origin: center top;
+  
+}
+
+.P4page{
+  background-image: url(img/P4.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-bottom:5px solid #0099FF;
+  border-top:0px;
+  margin-top:-60px;
+  width:100%;
+  height:65%;
+  background-position: center;
+  background-origin: center top;
+  
+}
+
+.P5page{
+  background-image: url(img/P5.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-bottom:5px solid #0099FF;
+  border-top:0px;
+  margin-top:-60px;
+  width:100%;
+  height:65%;
+  background-position: center;
+  background-origin: center top;
+  
+}
+
+
+.buttonTUT{
+  align:center;
+  font-size: 15px;
+  height:40px;
+  width:180px;
+
+  margin-bottom:10px;
+  
+
+}
+
+.noscrolling{
+
+overflow: hidden;
+ position: fixed; 
+ width: 100%;
+
+}
+</style>
+<ion-view>
+ 
+        <body class="noscrolling">
+        <ion-slide-box on-slide-changed="slideChanged(index)" class="noscrolling">
+          <ion-slide>
+     
+
+           <div class="mainpage">
+      
+            
+          
+            </div>
+            
+            <h4 class="textheader"><b>Welcome to Konectivity</b></h4>
+            <p class="textcontent">Konectivity provides a professional platform for users to connect with people who share similar interests.</p>
+            <center><button class="buttonTUT button-small button"
+                  ng-click="startApp()" style=""><b>
+            Skip this tutorial
+          </b></button></center>
+            
+          </ion-slide>
+
+          <ion-slide>
+     
+
+           <div class="P1page">
+  
+            
+          
+            </div>
+            
+            <h4 class="textheader"><b>Easy to login</b></h4>
+            <p class="textcontent">Users can use their LinkedIn account to log in to Konectivity or sign-up to create their own account.</p>
+           <center> <button class="buttonTUT button-small button"
+                  ng-click="startApp()" ><b>
+            Skip this tutorial
+          </b></button></center>
+            
+          </ion-slide>
+         
+          <ion-slide>
+     
+
+           <div class="P2page">
+
+            
+          
+            </div>
+            
+            <h4 class="textheader"><b>Menu</b></h4>
+            <p class="textcontent">Menu Bar provides navigation for users to access all the features provided by Konectivity</p>
+           <center> <button class="buttonTUT button-small button"
+                  ng-click="startApp()" ><b>
+            Skip this tutorial
+          </b></button></center>
+            
+          </ion-slide>
+
+           <ion-slide>
+     
+
+           <div class="P3page">
+            
+          
+            </div>
+            
+            <h4 class="textheader"><b>Potential Connections</b></h4>
+            <p class="textcontent">Users can see other people who are using Konectivity to make new connections.</p>
+            <center><button class="buttonTUT button-small button"
+                  ng-click="startApp()" ><b>
+            Skip this tutorial
+          </b></button></center>
+            
+          </ion-slide>
+
+           <ion-slide>
+     
+
+           <div class="P4page">
+            
+          
+            </div>
+            
+            <h4 class="textheader"><b>My Connection</b></h4>
+            <p class="textcontent">After accepting connection requests, users become konectivity connections. Users can also send messages to their connections.</p>
+            <center><button class="buttonTUT button-small button"
+                  ng-click="startApp()" ><b>
+            Skip this tutorial
+          </b></button></center>
+            
+          </ion-slide>
+
+           <ion-slide>
+     
+
+           <div class="P5page">
+            
+          
+            </div>
+            
+            <h4 class="textheader"><b>Event Page</b></h4>
+
+            <p class="textcontent">By entering correct event ID provided by event planner, users can see details about the event.</p>
+            
+           <center><button class="buttonTUT button-small button"
+                  ng-click="startApp()" ><b>
+            Go to login
+          </b></button></center>
+            
+            
+          </ion-slide>
+          
+
+        </ion-slide-box>
+        
+      </ion-view>
+    </body>
+
+
+
